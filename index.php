@@ -1,10 +1,5 @@
 <?php
-if (!isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'on') {
-    header("Location: https://moskhar.my.id/projectGame/snake");
-    
-$conn = mysqli_connect("sql110.epizy.com", "epiz_31237560", "
-bUlkVMLrGMSpVDs", "epiz_31237560_game");
-}
+
 ?>
 <!--Creator By Oskhar-->
 
@@ -53,8 +48,8 @@ bUlkVMLrGMSpVDs", "epiz_31237560_game");
 		height: 28px;
 		width: 28px;
 		position: absolute;
-		left: <?php echo 9*30; ?>px;
-		top: <?php echo 7*30; ?>px;
+		left: 270px;
+		top: 210px;
 		background: #c12f2f;
 		border: 1px solid black;
 	}
@@ -64,8 +59,8 @@ bUlkVMLrGMSpVDs", "epiz_31237560_game");
 		border-radius: 5px;
 		background: transparent;
 		position: absolute;
-		left: <?php echo 9*30; ?>px;
-		top: <?php echo 7*30; ?>px;
+		left: 270px;
+		top: 210px;
 	}
 	#makanan::after{
 		content: '';
@@ -184,7 +179,7 @@ var no = 1;
 var score = 0;
 var langkahX = [];
 var langkahY = [];
-let d = "LEFT";
+let d = "UP";
 var makananX = (Math.floor(Math.random()*18) * 30);
 var makananY = (Math.floor(Math.random()*15) * 30);
 var waktu = 0;
@@ -234,9 +229,6 @@ function play() {
 			document.getElementById("data").style.width = "500px";
 		    var xhr2 = new XMLHttpRequest();
 		    var param = "nama="+ nama + "&skor=" + score + "&waktu=" + waktu;
-		    xhr2.open('POST','skorSnake.php',true);
-		    xhr2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		    xhr2.send(param);
 
 			clearInterval(game);
 		}
@@ -253,14 +245,14 @@ function play() {
 	pin = 0;
 	waktu = waktu + 1;
 }
-let game = setInterval(play,250);
+let game = setInterval(play,50);
 var pin = 0;
 document.addEventListener('keydown', function(event) {
     let key = event.keyCode;
     if( key == 37 && d != "RIGHT" && pin == 0){
         d = "LEFT";
         pin = 1;
-
+		lu 
     }else if(key == 38 && d != "DOWN" && pin == 0){
         d = "UP";
         pin = 1;
